@@ -14,9 +14,9 @@ tail -F /var/log/apache2/* &
 export HOME=/root
 
 
-if [ ! -e "/var/www/html/config.php" ]; then
+#if [ ! -e "/var/www/html/config.php" ]; then
   # install moodle
-  sudo -u www-data /usr/bin/php /var/www/html/admin/cli/install.php \
+  #sudo -u www-data /usr/bin/php /var/www/html/admin/cli/install.php \
   --non-interactive \
   --lang=ja \
   --wwwroot="${MOCA_URL}" \
@@ -41,7 +41,7 @@ if [ ! -e "/var/www/html/config.php" ]; then
   # sed -ie "/^require/i \$CFG->phpunit_dataroot = '/var/moodledata_test';" /var/www/html/config.php
   # initialize test environment
   # /usr/bin/php /var/www/html/admin/tool/phpunit/cli/init.php
-fi
+#fi
 
 # for running container permanently...
-exec apache2 -D FOREGROUND
+#exec apache2 -D FOREGROUND
